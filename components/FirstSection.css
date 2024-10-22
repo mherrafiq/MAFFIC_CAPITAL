@@ -1,0 +1,231 @@
+.first-section {
+    background: linear-gradient(0deg, #1E2538, #1E2538);
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #1E2538;
+    padding: 0 20px;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between; /* Ensure items are spread out */
+    align-items: center; /* Align items vertically */
+    background-color: #1E2538;
+    width: 100%;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 15px; /* Space between items */
+    justify-content: flex-end; /* Align items to the right */
+    width: 100%;
+    padding: 10px 38px 10px 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Align icons vertically with text */
+}
+
+.nav-items {
+    display: flex;
+    justify-content: flex-end; /* Align nav items to the right */
+    width: 100%;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+    margin-right: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-link:hover {
+    color: #E95A0C;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    color: white;
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #1E2538;
+    border: 1px solid #E95A0C;
+    padding: 10px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.dropdown-content a:hover {
+    color: #E95A0C;
+}
+
+.main-content {
+    text-align: left; /* Aligns the main content to the left */
+    padding-left: 20px; /* Adds some padding for spacing from the left edge */
+}
+
+.main-content h2 {
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.main-content h2 span.highlight {
+    color: #E95A0C;
+}
+
+.sub-text {
+    text-align: left; /* Ensures that the paragraph text is aligned to the left */
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.book-btn, .login-btn {
+    background-color: #E95A0C;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.book-btn:hover, .login-btn:hover {
+    background-color: #d84c0a;
+}
+
+.growth-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.growth-box {
+    text-align: center;
+    background-color: #2C3243;
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    color: #E95A0C;
+}
+
+.growth-box span {
+    font-size: 14px;
+}
+
+.logo {
+    filter: brightness(0) invert(1); /* White color effect */
+    width: 150px;  
+    height: auto;
+    padding: 15px;
+}
+
+.believe-btn {
+    background: #2D3C65;  
+    color: white;           
+    border: none;           
+    padding: 10px 20px;     
+    font-size: 16px;        
+    font-weight: bold;      
+    border-radius: 5px;     
+    cursor: pointer;        
+    transition: background 0.3s ease; 
+}
+
+.believe-btn:hover {
+    background: #1B2A4A;    
+}
+
+.navbar-text {
+    display: flex;
+    align-items: center; 
+    gap: 5px; 
+    color: white; 
+}
+
+.navbar-text svg {
+    vertical-align: middle; 
+}
+
+.login-btn {
+    background-color: #1E2538; 
+    border: 2px solid #E95A0C; 
+    color: white; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+
+.login-btn:hover {
+    background-color: #E95A0C; 
+    color: #1E2538; 
+}
+
+.graph-image {
+    margin: 0;          
+    padding: 0;         
+    overflow: hidden;   
+}
+
+.graph-image img {
+    display: block;      
+    max-width: 100%;    
+    height: auto;       
+}
+
+/* Media Queries for Responsiveness without Layout Change */
+@media (max-width: 768px) {
+    .main-content h2 {
+        font-size: 28px; /* Adjusted font size for smaller screens */
+    }
+    
+    .book-btn, .login-btn {
+        padding: 10px; /* Reduced padding for smaller buttons */
+        width: 100%; /* Full width buttons */
+    }
+
+    .growth-section {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .growth-box {
+        margin: 10px 0; /* Spacing between stacked boxes */
+        width: 80%; /* Make boxes responsive */
+    }
+}
