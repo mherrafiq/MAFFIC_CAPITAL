@@ -57,21 +57,27 @@ const FirstSection = () => {
     return (
         <div className="first-section overflow-x-hidden min-h-screen">
             <nav className="navbar">
-                <div className="contact-info">
+
+
+                <div className="contact-info flex justify-end space-x-4 pr-4">
                     <span className="navbar-text text-xs sm:text-sm md:text-base flex items-center">
                         <FaPhone className="mr-1" /> +1 (525) 456 7890
                     </span>
 
-                    <span className="navbar-text">
-                        <FaEnvelope /> info@domain.com
+                    <span className="navbar-text text-xs sm:text-sm md:text-base flex items-center">
+                        <FaEnvelope className="mr-1" /> info@domain.com
                     </span>
-                    <span className="social-icons">
-                        <FiFacebook />
-                        <FiLinkedin />
-                        <FiTwitter />
+
+                    <span className="social-icons flex space-x-2">
+                        <FiFacebook className="w-4 h-4 md:w-5 md:h-5" />
+                        <FiLinkedin className="w-4 h-4 md:w-5 md:h-5" />
+                        <FiTwitter className="w-4 h-4 md:w-5 md:h-5" />
                     </span>
-                    <span className="navbar-text arabic-text">العربية</span>
+
+                    <span className="navbar-text arabic-text text-xs sm:text-sm md:text-base">العربية</span>
                 </div>
+
+
                 <div className="container-fluid flex justify-center">
                     <a className="navbar-brand" href="#">
                         <Image
