@@ -58,9 +58,10 @@ const FirstSection = () => {
         <div className="first-section overflow-x-hidden min-h-screen">
             <nav className="navbar">
                 <div className="contact-info">
-                    <span className="navbar-text">
-                        <FaPhone /> +1 (525) 456 7890
+                    <span className="navbar-text text-xs sm:text-sm md:text-base flex items-center">
+                        <FaPhone className="mr-1" /> +1 (525) 456 7890
                     </span>
+
                     <span className="navbar-text">
                         <FaEnvelope /> info@domain.com
                     </span>
