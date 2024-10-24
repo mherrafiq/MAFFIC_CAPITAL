@@ -28,23 +28,23 @@ const MeficCapitalPortfolio = () => {
         {/* Heading */}
         <h3 className="text-4xl font-bold relative inline-block mb-4">
           <span className="text-[#001B2E] py-1 px-3">MEFIC Capital</span>
-          <span className="text-[#E95A0C] py-1 px-3">Portfolio</span>
-          <span className="absolute inset-x-0 bottom-[-8px] h-2 bg-black transform rounded-full" />
+          <span className="text-[#E95A0C] py-1 px-0">Portfolio</span>
+          <span className="absolute inset-x-0 bottom-[-8px] w-1/2 mx-auto h-1 bg-black transform rounded-full" />
         </h3>
 
         {/* Centered Text */}
-        <p className="mt-4 text-gray-800 max-w-2xl mx-auto">
+        <p className="mt-4 text-gray-800 w-1/2 mx-auto">
           Office ipsum you must be muted. Conversation banner gave dive investigation chime usability whatever. Winning of crystallize another container reinvent stands.
         </p>
 
         {/* Labels */}
-        <div className="flex justify-center mt-6 flex-wrap">
+        <div className="flex justify-center mt-6">
           {['All', 'Real-Estate', 'Equity Funds'].map((label) => (
             <button
               key={label}
-              className={`mx-2 py-2 px-4 text-base md:text-lg ${
+              className={`mx-2 py-2 px-4 ${
                 activeLabel === label ? 'bg-[#E95A0C] text-white underline' : 'bg-white text-black'
-              } rounded`}
+              }`}
               onClick={() => setActiveLabel(label)}
             >
               {label}
@@ -54,10 +54,10 @@ const MeficCapitalPortfolio = () => {
 
         {/* Image display for 'All' label */}
         {activeLabel === 'All' && (
-          <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
+          <div className="flex justify-center items-center gap-4 mt-8 flex-wrap">
             {images.map((image, index) => (
-              <div key={index} className="bg-white p-2 shadow-md rounded" style={{ width: '300px', height: '300px' }}>
-                <Image src={image.src} alt={image.alt} layout="responsive" width={300} height={300} />
+              <div key={index} className="bg-white p-2 shadow-md w-40 h-40 flex-shrink-0">
+                <Image src={image.src} alt={image.alt} layout="responsive" width={100} height={100} />
               </div>
             ))}
           </div>
