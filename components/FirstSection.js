@@ -59,25 +59,31 @@ const FirstSection = () => {
             <nav className="navbar">
 
                 {/* contact info set */}
-                <div className="contact-info flex justify-end items-center p-2 bg-[#1E2538]">
-                    <div className="flex items-center space-x-4">
-                        <span className="navbar-text text-xs sm:text-sm flex items-center whitespace-nowrap">
-                            <FaPhone className="mr-1" /> +1 (525) 456 7890
-                        </span>
-                        <span className="navbar-text text-xs sm:text-sm flex items-center whitespace-nowrap">
-                            <FaEnvelope className="mr-1" /> info@domain.com
-                        </span>
-                    </div>
+               <div className="contact-info flex justify-end items-center p-2 bg-[#1E2538]">
+    <div className="flex items-center space-x-2 sm:space-x-4">
+        <span className="navbar-text text-xs flex items-center whitespace-nowrap">
+            <FaPhone className="mr-1" /> +1 (525) 456 7890
+        </span>
+        <span className="navbar-text text-xs flex items-center whitespace-nowrap">
+            <FaEnvelope className="mr-1" /> info@domain.com
+        </span>
+    </div>
 
-                    <div className="flex items-center space-x-4 -ml-3">
-                        <span className="social-icons flex space-x-2">
-                            <FiFacebook className="w-4 h-4" />
-                            <FiLinkedin className="w-4 h-4" />
-                            <FiTwitter className="w-4 h-4" />
-                        </span>
-                        <span className="navbar-text arabic-text text-xs sm:text-sm whitespace-nowrap w-3 h-3">العربية</span>
-                    </div>
-                </div>
+    <div className="flex items-center space-x-2 sm:space-x-3 -ml-4">
+        <span className="social-icons flex items-center space-x-1 ml-3">
+            <FiFacebook className="w-4 h-4" />
+            <FiLinkedin className="w-4 h-4" />
+            <FiTwitter className="w-4 h-4" />
+        </span>
+        <span className="navbar-text arabic-text text-xs whitespace-nowrap -ml-2">العربية</span>
+    </div>
+</div>
+
+
+
+
+
+
 
 
 
