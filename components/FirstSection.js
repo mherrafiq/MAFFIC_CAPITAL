@@ -14,7 +14,8 @@ const FirstSection = () => {
         additionalInfo: false,
         servicesDropdown: false,
         aboutDropdown: false,
-        mediaDropdown: false
+        mediaDropdown: false,
+        contactInfo: false // State for contact info dropdown
     });
 
     const toggleDropdown = (menu) => {
@@ -57,36 +58,37 @@ const FirstSection = () => {
     return (
         <div className="first-section overflow-x-hidden min-h-screen">
             <nav className="navbar">
+                <div className="contact-info flex justify-center items-center p-2 bg-[#1E2538]">
+                    <div className="flex items-center space-x-1">
+                        {/* Contact Info Button */}
+                        <button
+                            onClick={() => toggleDropdown('contactInfo')}
+                            className="text-sm flex items-center bg-[#E95A0C] hover:bg-[#1B2A4A] py-3 px-6 rounded-full transition text-white"
+                        >
+                            Contact Info
+                            <FaChevronDown className={`ml-2 transition-transform duration-300 ${dropdownOpen.contactInfo ? 'rotate-180' : ''}`} />
+                        </button>
+                    </div>
 
-                {/* contact info set */}
-               <div className="contact-info flex justify-end items-center p-2 bg-[#1E2538]">
-    <div className="flex items-center space-x-2 sm:space-x-4">
-        <span className="navbar-text text-xs flex items-center whitespace-nowrap">
-            <FaPhone className="mr-1" /> +1 (525) 456 7890
-        </span>
-        <span className="navbar-text text-xs flex items-center whitespace-nowrap">
-            <FaEnvelope className="mr-1" /> info@domain.com
-        </span>
-    </div>
-
-    <div className="flex items-center space-x-2 sm:space-x-3 -ml-4">
-        <span className="social-icons flex items-center space-x-1 ml-3">
-            <FiFacebook className="w-4 h-4" />
-            <FiLinkedin className="w-4 h-4" />
-            <FiTwitter className="w-4 h-4" />
-        </span>
-        <span className="navbar-text arabic-text text-xs whitespace-nowrap -ml-2">العربية</span>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
+                    {/* Collapsible Contact Info Section */}
+                    <div className={`transition-all duration-300 overflow-hidden ${dropdownOpen.contactInfo ? 'max-h-40' : 'max-h-0'}`}>
+                        <div className="flex items-center space-x-2 p-2 bg-[#2A3649]">
+                            <span className="navbar-text text-xs flex items-center whitespace-nowrap">
+                                <FaPhone className="mr-1" /> +1 (525) 456 7890
+                            </span>
+                            <span className="navbar-text text-xs flex items-center whitespace-nowrap">
+                                <FaEnvelope className="mr-1" /> info@domain.com
+                            </span>
+                        </div>
+                        <div className="flex items-center space-x-2 p-2 bg-[#2A3649]">
+                            <span className="social-icons flex items-center space-x-1">
+                                <FiFacebook className="w-4 h-4" />
+                                <FiLinkedin className="w-4 h-4" />
+                                <FiTwitter className="w-4 h-4" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="container-fluid flex justify-center">
                     <a className="navbar-brand" href="#">
@@ -116,8 +118,7 @@ const FirstSection = () => {
                                         >
                                             Our Services
                                             <FaChevronDown
-                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.servicesDropdown ? 'rotate-180' : ''
-                                                    }`}
+                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.servicesDropdown ? 'rotate-180' : ''}`}
                                             />
                                         </button>
                                         {dropdownOpen.servicesDropdown && (
@@ -135,8 +136,7 @@ const FirstSection = () => {
                                         >
                                             About MEFIC
                                             <FaChevronDown
-                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.aboutDropdown ? 'rotate-180' : ''
-                                                    }`}
+                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.aboutDropdown ? 'rotate-180' : ''}`}
                                             />
                                         </button>
                                         {dropdownOpen.aboutDropdown && (
@@ -154,8 +154,7 @@ const FirstSection = () => {
                                         >
                                             Media Center
                                             <FaChevronDown
-                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.mediaDropdown ? 'rotate-180' : ''
-                                                    }`}
+                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.mediaDropdown ? 'rotate-180' : ''}`}
                                             />
                                         </button>
                                         {dropdownOpen.mediaDropdown && (
