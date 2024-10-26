@@ -255,15 +255,9 @@
 }
 
 .additional-info-dropdown {
-    position: absolute; /* Positioning the dropdown */
-    top: 100%; /* Align it below the button */
-    right: 0; /* Align to the right */
-    background-color: #1E2538; /* Background color for dropdown */
-    border: 1px solid #E95A0C; /* Border style */
-    padding: 10px; /* Padding around items */
-    z-index: 1; /* Ensure it appears above other elements */
-    display: flex;
-    flex-direction: column;
+    background-color: #2A3649;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .additional-info-dropdown ul {
@@ -282,4 +276,45 @@
 
 .additional-info-dropdown a:hover {
     color: #E95A0C; /* Change color on hover */
+}
+
+.dropdown-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Set the dropdown list to display flex */
+    gap: 15px; /* Add some space between items */
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.dropdown-item:hover {
+    background-color: #1B2A4A;
+}
+
+
+.sub-dropdown {
+    display: flex;
+    flex-direction: column;
+    background-color: #2A3649;
+    padding: 10px;
+}
+
+.book-btn {
+    background-color: #E95A0C; /* Button color */
+    color: white; /* Text color */
+    padding: 10px 15px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.book-btn:hover {
+    background-color: #1B2A4A; /* Darker color on hover */
 }

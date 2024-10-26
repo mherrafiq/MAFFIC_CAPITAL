@@ -1,6 +1,6 @@
 'use client';
 
-import { FaChevronDown } from 'react-icons/fa'; // Import the icon at the top
+import { FaChevronDown } from 'react-icons/fa';
 import React, { useState, useEffect } from 'react';
 import { FaPhone, FaEnvelope } from 'react-icons/fa';
 import { FiFacebook, FiLinkedin, FiTwitter } from 'react-icons/fi';
@@ -15,13 +15,13 @@ const FirstSection = () => {
         servicesDropdown: false,
         aboutDropdown: false,
         mediaDropdown: false,
-        contactInfo: false // State for contact info dropdown
+        contactInfo: false,
     });
 
     const toggleDropdown = (menu) => {
         setDropdownOpen((prev) => ({
             ...prev,
-            [menu]: !prev[menu]
+            [menu]: !prev[menu],
         }));
     };
 
@@ -42,7 +42,7 @@ const FirstSection = () => {
                     } else if (prev <= -50) {
                         setDirection(1);
                     }
-                    return prev + (direction * 0.2);
+                    return prev + direction * 0.2;
                 });
             }
             animationFrameId = requestAnimationFrame(moveImage);
@@ -58,39 +58,50 @@ const FirstSection = () => {
     return (
         <div className="first-section overflow-x-hidden min-h-screen">
             <nav className="navbar">
-                <div className="contact-info flex justify-center items-center p-2 bg-[#1E2538]">
-                    <div className="flex items-center space-x-1">
-                        {/* Contact Info Button */}
-                        <button
-                            onClick={() => toggleDropdown('contactInfo')}
-                            className="text-sm flex items-center bg-[#E95A0C] hover:bg-[#1B2A4A] py-3 px-6 rounded-full transition text-white"
-                        >
-                            Contact Info
-                            <FaChevronDown className={`ml-2 transition-transform duration-300 ${dropdownOpen.contactInfo ? 'rotate-180' : ''}`} />
-                        </button>
-                    </div>
+                {/* Centered Buttons for Contact Info and Additional Info */}
+                <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-4 p-4 bg-[#1E2538]">
+                    {/* Contact Info Button */}
+                    <button
+                        onClick={() => toggleDropdown('contactInfo')}
+                        className="text-sm flex items-center justify-center bg-[#E95A0C] hover:bg-[#1B2A4A] py-3 px-6 rounded-full transition text-white"
+                    >
+                        Contact Info
+                        <FaChevronDown className={`ml-2 transition-transform duration-300 ${dropdownOpen.contactInfo ? 'rotate-180' : ''}`} />
+                    </button>
 
-                    {/* Collapsible Contact Info Section */}
-                    <div className={`transition-all duration-300 overflow-hidden ${dropdownOpen.contactInfo ? 'max-h-40' : 'max-h-0'}`}>
-                        <div className="flex items-center space-x-2 p-2 bg-[#2A3649]">
-                            <span className="navbar-text text-xs flex items-center whitespace-nowrap">
-                                <FaPhone className="mr-1" /> +1 (525) 456 7890
-                            </span>
-                            <span className="navbar-text text-xs flex items-center whitespace-nowrap">
-                                <FaEnvelope className="mr-1" /> info@domain.com
-                            </span>
-                        </div>
-                        <div className="flex items-center space-x-2 p-2 bg-[#2A3649]">
-                            <span className="social-icons flex items-center space-x-1">
-                                <FiFacebook className="w-4 h-4" />
-                                <FiLinkedin className="w-4 h-4" />
-                                <FiTwitter className="w-4 h-4" />
-                            </span>
-                        </div>
+                    {/* Additional Info Button */}
+                    <button
+                        className="additional-info-btn flex items-center justify-center text-white py-3 px-6 rounded-full transition bg-[#2A3649] hover:bg-[#1B2A4A]"
+                        onClick={() => toggleDropdown('additionalInfo')}
+                    >
+                        Additional Info
+                        <FaChevronDown
+                            className={`ml-2 transition-transform duration-300 ${dropdownOpen.additionalInfo ? 'rotate-180' : ''}`}
+                        />
+                    </button>
+                </div>
+
+                {/* Collapsible Contact Info Section */}
+                <div className={`transition-all duration-300 overflow-hidden ${dropdownOpen.contactInfo ? 'max-h-40' : 'max-h-0'}`}>
+                    <div className="flex flex-col items-center space-y-2 p-2 bg-[#2A3649]">
+                        <span className="navbar-text text-xs flex items-center whitespace-nowrap">
+                            <FaPhone className="mr-1" /> +1 (525) 456 7890
+                        </span>
+                        <span className="navbar-text text-xs flex items-center whitespace-nowrap">
+                            <FaEnvelope className="mr-1" /> info@domain.com
+                        </span>
+                    </div>
+                    <div className="flex items-center justify-center space-x-2 p-2 bg-[#2A3649]">
+                        <span className="social-icons flex items-center space-x-1">
+                            <FiFacebook className="w-4 h-4" />
+                            <FiLinkedin className="w-4 h-4" />
+                            <FiTwitter className="w-4 h-4" />
+                        </span>
                     </div>
                 </div>
 
-                <div className="container-fluid flex justify-center">
+                {/* Logo and Additional Info Dropdown */}
+                <div className="container-fluid flex justify-center mt-4">
                     <a className="navbar-brand" href="#">
                         <Image
                             src={capital_logo}
@@ -100,77 +111,68 @@ const FirstSection = () => {
                         />
                     </a>
 
-                    {/* Additional Info section remains */}
-                    <div className="additional-info">
-                        <button
-                            className="additional-info-btn flex items-center text-white"
-                            onClick={() => toggleDropdown('additionalInfo')}
-                        >
-                            Additional Info
-                        </button>
-                        {dropdownOpen.additionalInfo && (
-                            <div className="additional-info-dropdown">
-                                <ul>
-                                    <li>
-                                        <button
-                                            onClick={() => toggleDropdown('servicesDropdown')}
-                                            className="dropdown-item flex items-center justify-between text-white"
-                                        >
-                                            Our Services
-                                            <FaChevronDown
-                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.servicesDropdown ? 'rotate-180' : ''}`}
-                                            />
-                                        </button>
-                                        {dropdownOpen.servicesDropdown && (
-                                            <ul className="sub-dropdown">
-                                                <li><a href="#">Financial Planning</a></li>
-                                                <li><a href="#">Investment Management</a></li>
-                                                <li><a href="#">Wealth Management</a></li>
-                                            </ul>
-                                        )}
-                                    </li>
-                                    <li>
-                                        <button
-                                            onClick={() => toggleDropdown('aboutDropdown')}
-                                            className="dropdown-item flex items-center justify-between text-white"
-                                        >
-                                            About MEFIC
-                                            <FaChevronDown
-                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.aboutDropdown ? 'rotate-180' : ''}`}
-                                            />
-                                        </button>
-                                        {dropdownOpen.aboutDropdown && (
-                                            <ul className="sub-dropdown">
-                                                <li><a href="#">Company Overview</a></li>
-                                                <li><a href="#">Our Team</a></li>
-                                                <li><a href="#">Our Vision</a></li>
-                                            </ul>
-                                        )}
-                                    </li>
-                                    <li>
-                                        <button
-                                            onClick={() => toggleDropdown('mediaDropdown')}
-                                            className="dropdown-item flex items-center justify-between text-white"
-                                        >
-                                            Media Center
-                                            <FaChevronDown
-                                                className={`ml-2 transition-transform duration-300 ${dropdownOpen.mediaDropdown ? 'rotate-180' : ''}`}
-                                            />
-                                        </button>
-                                        {dropdownOpen.mediaDropdown && (
-                                            <ul className="sub-dropdown">
-                                                <li><a href="#">Press Releases</a></li>
-                                                <li><a href="#">News & Events</a></li>
-                                                <li><a href="#">Media Kit</a></li>
-                                            </ul>
-                                        )}
-                                    </li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><button className="book-btn">Book a Consultant</button></li>
-                                </ul>
-                            </div>
-                        )}
-                    </div>
+                    {/* Additional Info Dropdown positioned directly under the button */}
+                    {dropdownOpen.additionalInfo && (
+                        
+                        <div className="additional-info-dropdown flex flex-col items-center bg-[#2A3649] p-2">
+                            <ul className="flex flex-col items-center">
+                                <li className="flex items-center justify-between w-full">
+                                    <button
+                                        onClick={() => toggleDropdown('servicesDropdown')}
+                                        className="dropdown-item flex items-center justify-between text-white w-full py-2"
+                                    >
+                                        Our Services
+                                        <FaChevronDown className="ml-2 text-white" />
+                                    </button>
+                                    {dropdownOpen.servicesDropdown && (
+                                        <ul className="sub-dropdown">
+                                            <li><a href="#" className="text-white">Financial Planning</a></li>
+                                            <li><a href="#" className="text-white">Investment Management</a></li>
+                                            <li><a href="#" className="text-white">Wealth Management</a></li>
+                                        </ul>
+                                    )}
+                                </li>
+                                <li className="flex items-center justify-between w-full">
+                                    <button
+                                        onClick={() => toggleDropdown('aboutDropdown')}
+                                        className="dropdown-item flex items-center justify-between text-white w-full py-2"
+                                    >
+                                        About MEFIC
+                                        <FaChevronDown className="ml-2 text-white" />
+                                    </button>
+                                    {dropdownOpen.aboutDropdown && (
+                                        <ul className="sub-dropdown">
+                                            <li><a href="#" className="text-white">Company Overview</a></li>
+                                            <li><a href="#" className="text-white">Our Team</a></li>
+                                            <li><a href="#" className="text-white">Our Vision</a></li>
+                                        </ul>
+                                    )}
+                                </li>
+                                <li className="flex items-center justify-between w-full">
+                                    <button
+                                        onClick={() => toggleDropdown('mediaDropdown')}
+                                        className="dropdown-item flex items-center justify-between text-white w-full py-2"
+                                    >
+                                        Media Center
+                                        <FaChevronDown className="ml-2 text-white" />
+                                    </button>
+                                    {dropdownOpen.mediaDropdown && (
+                                        <ul className="sub-dropdown">
+                                            <li><a href="#" className="text-white">Press Releases</a></li>
+                                            <li><a href="#" className="text-white">News & Events</a></li>
+                                            <li><a href="#" className="text-white">Media Kit</a></li>
+                                        </ul>
+                                    )}
+                                </li>
+                                <li className="text-white w-full py-2">Careers</li>
+                                <li>
+                                    <button className="book-btn text-white bg-[#E95A0C] py-2 px-4 rounded">
+                                        Book a Consultant
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </nav>
 
@@ -202,7 +204,11 @@ const FirstSection = () => {
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    <Image src={graphImage} alt="Graph" className="w-full h-[700px] object-cover cursor-pointer" />
+                    <Image
+                        src={graphImage}
+                        alt="Graph"
+                        className="w-10/12"
+                    />
                 </div>
             </div>
         </div>
