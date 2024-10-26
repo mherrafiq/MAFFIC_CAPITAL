@@ -25,12 +25,7 @@
 }
 
 .contact-info {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    gap: 15px; /* Space between items */
-    justify-content: flex-end; /* Align items to the right */
-    width: 100%;
-    padding: 10px 38px 10px 10px;
+    display: none; /* Hide by default */
 }
 
 .social-icons {
@@ -231,6 +226,7 @@
         width: 100px; /* Increased logo size for mobile */
         height: auto; /* Maintain aspect ratio */
     }
+    
 }
 
 
